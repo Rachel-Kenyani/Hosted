@@ -21,6 +21,8 @@ export async function POST(request: Request) {
       return post;
     });
 
+    
+
     return new Response(JSON.stringify(posts), {
       status: 201,
       statusText: "Success",

@@ -19,6 +19,8 @@ export const getPosts= async()=>{
   }
 }
 
+
+
 export const getVehicles= async()=>{
   const url ='api/get-vehicles'
       const response = await fetch(url)
