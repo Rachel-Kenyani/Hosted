@@ -81,6 +81,7 @@ export const LandingPage = () => {
         autoPlay={true}
         interval={5000}
       >
+      
         {textContent.map((page, index) => (
           <div key={index}>
             <Image

@@ -1,20 +1,17 @@
-"use client";
-import React, { useState } from "react";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { useCreateUser } from "../hooks/useCreateUser";
-import Link from "next/link";
-import Image from "next/image";
-import { useRouter } from "next/navigation";
+"use client"
+import React, { useState } from 'react';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { useCreateUser } from '../hooks/useCreateUser';
+import Link from 'next/link';
+import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 const SignUp: React.FC = () => {
   const [user, setUser] = useState({
-    description: "",
-    company_id: "",
-    username: "",
-    location: "",
-    email: "",
-    phone_number: "",
-    password: "",
-    confirmPassword: "",
+    username: '',
+    email: '',
+    phone_number: '',
+    password: '',
+    confirmPassword: '',
   });
   const [response, setResponse] = useState<string | null>(null);
   const [showPassword, setShowPassword] = useState(false);
@@ -28,31 +25,32 @@ const SignUp: React.FC = () => {
     });
   };
   const handleSubmit = async () => {
-    const isAnyFieldEmpty = Object.values(user).some((value) => value === "");
+    const isAnyFieldEmpty = Object.values(user).some((value) => value === '');
     if (isAnyFieldEmpty) {
-      setResponse("Please fill out all fields.");
+      setResponse('Please fill out all fields.');
       return;
     }
     try {
-      setResponse("Registration successful...");
+      setResponse('Registration successful...');
       await new Promise((resolve) => setTimeout(resolve, 2000));
       // eslint-disable-next-line react-hooks/rules-of-hooks
       const result = await useCreateUser(user);
-      setResponse("Signup successful");
+      setResponse('Signup successful');
     } catch (error: any) {
-      console.error("Error:", error);
-      setResponse("Error occurred. Please check the console for details.");
+      console.error('Error:', error);
+      setResponse('Error occurred. Please check the console for details.');
     }
-    router.push("/emissionChart");
+    router.push("/emissionChart")
   };
   const togglePasswordVisibility = (field: string) => {
-    if (field === "password") {
+    if (field === 'password') {
       setShowPassword(!showPassword);
-    } else if (field === "confirmPassword") {
+    } else if (field === 'confirmPassword') {
       setShowConfirmPassword(!showConfirmPassword);
     }
   };
-  const isAnyFieldEmpty = Object.values(user).some((value) => value === "");
+  const isAnyFieldEmpty = Object.values(user).some((value) => value === '');
+
   return (
     <div>
       <div className="top absolute -mt-16 w-[40cm] h-[2.1cm] bg-[#fff]"></div>

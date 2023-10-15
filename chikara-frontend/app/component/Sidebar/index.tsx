@@ -1,9 +1,9 @@
-
 "use client"
 import Image from "next/image";
 import "tailwindcss/tailwind.css";
 import React, { useState, useEffect } from 'react';
 import { FaCreditCard, FaHome, FaUser, FaBars, FaTimes, FaBus, FaCloud } from 'react-icons/fa';
+import { BiSolidDashboard } from 'react-icons/bi';
 import Link from "next/link";
 const Sidebar: React.FC = () => {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
@@ -63,39 +63,40 @@ const Sidebar: React.FC = () => {
             />
           </div>
         </div>
-        <ul className={`p-2 , FaBars, FaTimes, FaBus, FaCloud mt-14 ${isSidebarCollapsed ? 'hidden' : ''}`}>
+        <ul className={`p-2 mt-14 ${isSidebarCollapsed ? 'hidden' : ''}`}>
+        <Link href="/overview">
+        <li
+            onClick={() => handleLinkClick("/overview")}
+            className={`flex mt-6 py-4 text-white ml-10 cursor-pointer items-center ${activeLink === "/overview" ? 'bg-white text-teal-500 rounded-lg px-3' : 'hover:bg-white hover:text-teal-500 hover:rounded-lg hover:px-3 transition-all duration-300'}`}
+          >
+            <BiSolidDashboard className={`text-white text-xl mr-2 ${isSidebarCollapsed ? 'md:w-20 md:h-20' : ''}`} />
+            <span className="list capitalize text-xl ml-1">Overview</span>
+          </li>
+        </Link>
         <Link href="/emissionChart">
         <li
             onClick={() => handleLinkClick("/emissionChart")}
-            
-            className={`flex mt-6 py-4 text-white ml-10 cursor-pointer items-center ${activeLink === "/creditChart" ? 'bg-white text-teal-800 rounded-lg px-3' : 'hover:bg-white hover:text-teal-800 hover:rounded-lg hover:px-3 transition-all duration-300'}`}
+            className={`flex mt-6 py-4 text-white ml-10 cursor-pointer items-center ${activeLink === "/emissionChart" ? 'bg-white text-teal-500 rounded-lg px-3' : 'hover:bg-white hover:text-teal-500 hover:rounded-lg hover:px-3 transition-all duration-300'}`}
           >
             <FaCreditCard className={`text-white mr-2 ${isSidebarCollapsed ? 'md:w-20 md:h-20' : ''}`} />
             <span className="list capitalize text-xl ml-2">Emission</span>
           </li>
         </Link>
-
-
-        
-
-
         <Link href="/creditChart">
           <li className="flex mt-6 py-4 text-white  ml-10 hover:bg-white hover:text-teal-500 hover:rounded-lg hover:px-9 transition-all duration-300 cursor-pointer items-center">
             <FaCloud className={`text-white mr-2 ${isSidebarCollapsed ? 'md:w-20 md:h-20' : ''}`} />
             <span className="list capitalize text-xl ml-2">Credits</span>
           </li>
           </Link>
-
           <Link href="/vehicles">
           <li
             onClick={() => handleLinkClick("/vehicles")}
-            className={`flex mt-6 py-4 text-white ml-10 cursor-pointer items-center ${activeLink === "/vehicles" ? 'bg-white text-teal-800 rounded-lg px-3' : 'hover:bg-white hover:text-teal-800 hover:rounded-lg hover:px-3 transition-all duration-300'}`}
+            className={`flex mt-6 py-4 text-white ml-10 cursor-pointer items-center ${activeLink === "/vehicles" ? 'bg-white text-teal-500 rounded-lg px-3' : 'hover:bg-white hover:text-teal-500 hover:rounded-lg hover:px-3 transition-all duration-300'}`}
           >
             <FaBus className={`text-white mr-2 ${isSidebarCollapsed ? 'md:w-20 md:h-20' : ''}`} />
             <span className="list capitalize text-xl ml-2">Vehicles</span>
           </li>
           </Link>
-        
         </ul>
         <div className="flex-grow"></div>
         <div className="p-4"></div>
