@@ -8,7 +8,7 @@ export async function GET() {
         statusText: "Failed",
       });
     }
-    const response = await fetch(`${BASE_URL}/emissionsdata/emissions-data/`);
+    const response = await fetch(`${BASE_URL}/emissionsdata/emissionsdata/`);
     if (!response.ok) {
       return new Response("Failed to fetch emission chart", {
         status: 500,
